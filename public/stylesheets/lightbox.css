@@ -1,0 +1,21 @@
+#lightbox{
+	background-color:#000;
+	padding: 10px;
+	}
+#lightboxDetails{
+	font-size: 0.8em;
+	padding-top: 0.4em;
+	}	
+#lightboxCaption{ float: left; }
+#keyboardMsg{ float: right; }
+#closeButton{ top: -10px; right: -10px; }
+
+#lightbox img{ border: none; clear: both;} 
+#overlay img{ border: none; }
+
+#overlay{ background-image: url(../images/overlay.png); }
+
+* html #overlay{
+	background-color: #333;
+	}
+	
