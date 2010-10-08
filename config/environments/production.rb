@@ -28,6 +28,10 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 config.after_initialize do
   CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "http://evening-day-42.heroku.com/"
+    :cas_base_url => "http://evening-day-42.heroku.com/",
+    :service_url => "http://quiet-samurai-41.heroku.com/pages"
   )
 end
+
+FIRST_SITE_URL = 'http://quiet-samurai-41.heroku.com'
+SECOND_SITE_URL = 'http://cold-river-72.heroku.com'

@@ -1,1 +1,96 @@
-<%= @username %> made it the pages!!!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>First Client Site</title> 
+  <link rel="stylesheet" href="stylesheets/base.css" type="text/css" media="screen" /> 
+  <link rel="stylesheet" id="current-theme" href="stylesheets/style.css" type="text/css" media="screen" /> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery-1.3.min.js"></script> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery.scrollTo.js"></script> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery.localscroll.js"></script> 
+  <script type="text/javascript" charset="utf-8"> 
+    // <![CDATA[
+    var Theme = {
+      activate: function(name) {
+        window.location.hash = 'themes/' + name
+        Theme.loadCurrent();
+      },
+ 
+      loadCurrent: function() {
+        var hash = window.location.hash;
+        if (hash.length > 0) {
+          matches = hash.match(/^#themes\/([a-z0-9\-_]+)$/);
+          if (matches && matches.length > 1) {
+            $('#current-theme').attr('href', 'stylesheets/themes/' + matches[1] + '/style.css');
+          } else {
+            alert('theme not valid');
+          }
+        }
+      }
+    }
+ 
+    $(document).ready(function() {
+      Theme.loadCurrent();
+      $.localScroll();
+      $('.table :checkbox.toggle').each(function(i, toggle) {
+        $(toggle).change(function(e) {
+          $(toggle).parents('table:first').find(':checkbox:not(.toggle)').each(function(j, checkbox) {
+            checkbox.checked = !checkbox.checked;
+          })
+        });
+      });
+    });
+    // ]]>
+  </script> 
+</head> 
+<body> 
+  <div id="container"> 
+    <div id="header"> 
+      <h1><a href="index.html">First Client Site</a></h1> 
+      <div id="user-navigation"> 
+        <ul class="wat-cf"> 
+        </ul> 
+      </div> 
+      <div id="main-navigation"> 
+        <ul class="wat-cf"> 
+          <li class="first active"><a href="#block-text">Main Page</a></li> 
+                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+        </ul> 
+      </div> 
+    </div> 
+    <div id="wrapper" class="wat-cf"> 
+      <div id="main"> 
+ 
+        <div class="block" id="block-text"> 
+          <div class="content"> 
+            <h2 class="title">Hi, <%= @username %> you are logged into the first site</h2> 
+            <div class="inner"> 
+              <p class="first"> 
+                This is a protected page on the first site
+              </p> 
+              <p>
+                <span style="font-size: 25px;"><%= link_to "Go to the second site", SECOND_SITE_URL + "/pages" %></span>
+              </p>
+              <h2>Woohoo! Protected content!</h2>
+<div>
+                <img src="http://s3.amazonaws.com/data.tumblr.com/tumblr_l9hj4uwenb1qaooc8o1_1280.jpg?AWSAccessKeyId=0RYTHV9YYQ4W5Q3HQMG2&Expires=1286658646&Signature=8bCD1vGm405dDObiK1BcJr99WUQ%3D"></div>
+
+            </div> 
+
+          </div> 
+        </div> 
+ 
+        
+ 
+        
+        <div id="footer"> 
+          <div class="block"> 
+            <p>Copyright &copy; 2010 Your Site.</p> 
+          </div> 
+        </div> 
+      </div> 
+      
+  </div> 
+</body> 
+</html> 
+ 

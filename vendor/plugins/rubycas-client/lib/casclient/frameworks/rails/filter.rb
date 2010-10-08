@@ -14,7 +14,7 @@ module CASClient
         class << self
           def filter(controller)
             raise "Cannot use the CASClient filter because it has not yet been configured." if config.nil?
-            
+
             if @@fake_user
               controller.session[client.username_session_key] = @@fake_user
               controller.session[:casfilteruser] = @@fake_user
@@ -66,11 +66,13 @@ module CASClient
             if st
               client.validate_service_ticket(st) unless st.has_been_validated?
               vr = st.response
-              log.info "INSPECT #{st.response.inspect}"
+
               if st.is_valid?
                 if is_new_session
                   log.info("Ticket #{st.ticket.inspect} for service #{st.service.inspect} belonging to user #{vr.user.inspect} is VALID.")
                   controller.session[client.username_session_key] = vr.user.dup
+                  log.info "Controller: #{controller.inspect}"
+                  # controller.set_cookie('user', controller.session[client.username_session_key])
                   controller.session[client.extra_attributes_session_key] = HashWithIndifferentAccess.new(vr.extra_attributes) if vr.extra_attributes
                   if vr.extra_attributes
                     log.debug("Extra user attributes provided along with ticket #{st.ticket.inspect}: #{vr.extra_attributes.inspect}.")

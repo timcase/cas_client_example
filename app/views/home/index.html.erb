@@ -1,413 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Estore 4</title>
-<!--//  Stylesheets  //-->
-<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="stylesheets/ddsmoothmenu.css" />
-<link rel="stylesheet" href="stylesheets/slider.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="stylesheets/lightbox.css" type="text/css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.1.css" media="screen" />
-<!--//  Javascript //-->
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="javascripts/menu.js"></script>
-<script type="text/javascript" src="javascripts/jquery.min14.js"></script>
-<script type="text/javascript" src="javascripts/jquery.easing.1.2.js"></script>
-<script type="text/javascript" src="javascripts/jquery.anythingslider.js"></script>
-<script type="text/javascript" src="javascripts/banner.js"></script>
-<script type="text/javascript" src="javascripts/ddaccordion.js"></script>
-<script type="text/javascript" src="javascripts/acordin.js"></script>
-<script type="text/javascript" src="javascripts/contentslider.js"></script>
-<script type="text/javascript" src="javascripts/animatedcollapse.js"></script>
-<script type="text/javascript" src="javascripts/toglrcollapse.js"></script>
-<script type="text/javascript" src="javascripts/lightbox.js"></script>
-<script type="text/javascript" src="javascripts/lightbox_img.js"></script>
-<script type="text/javascript" src="javascripts/virtualpaginate.js"></script>
-<script type="text/javascript" src="javascripts/cufon-yui.js"></script>
-<script type="text/javascript" src="javascripts/Myriad_Pro_400-Myriad_Pro_700-Myriad_Pro_italic_400-Myriad_Pro_italic_700.font.js"></script>
-<script type="text/javascript" src="javascripts/cufon.js"></script>
-<script type="text/javascript" src="javascripts/jquery.fancybox-1.3.1.js"></script>
-</head>
-
-<body>
-<!-- Main Container -->
-<div id="wrapper_sec">
-	<!-- Header Section -->
-	<div id="header">
-    	<div class="logo">
-        	<a href="index.html"><img src="images/logo.png" alt="" /></a>
-        </div>
-        <div class="right_header">
-        	<div class="topnavi">
-            	<ul>
-                	<li><a href="#">Store Finder</a></li>
-                    <li class="gallery"><a id="various1" href="#inline1">Create Account/Log-in</a></li>
-                    <li class="last"><a href="faq.html">Help</a></li>
-                </ul>
-                <span class="phone">08445 61 61 61</span>
-            </div>
-            <div class="cart">
-            	<ul>
-                	<li>My shopping bag</li>
-                    <li>1 items</li>
-                    <li><a href="shoppingcart.html">Go to bag</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Navigation Section -->
-    <div id="navigation">
-    	<div id="smoothmenu1" class="ddsmoothmenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">What’s New</a>
-                	<ul>
-                  		<li><a href="#">Laptop PCs</a></li>
-                  		<li><a href="#">Desktop PCs</a></li>
-                  		<li><a href="#">TVs</a></li>
-                  	</ul>
-                </li>
-                <li><a href="categories.html">Specials</a></li>
-                <li><a href="register.html">Create an Account</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="faq.html">FAQs</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-			<div class="clear"></div>
-		</div>
-    	<div class="search">
-            <ul>
-                <li><input name="" type="text" class="bar" /></li>
-                <li><input type="submit" class="search_btn" value="Search" /></li>
-            </ul>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <!-- Banner Section -->
-    <div id="banner">
-    	<div class="anythingSlider">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>First Client Site</title> 
+  <link rel="stylesheet" href="stylesheets/base.css" type="text/css" media="screen" /> 
+  <link rel="stylesheet" id="current-theme" href="stylesheets/style.css" type="text/css" media="screen" /> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery-1.3.min.js"></script> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery.scrollTo.js"></script> 
+  <script type="text/javascript" charset="utf-8" src="javascripts/jquery.localscroll.js"></script> 
+  <script type="text/javascript" charset="utf-8"> 
+    // <![CDATA[
+    var Theme = {
+      activate: function(name) {
+        window.location.hash = 'themes/' + name
+        Theme.loadCurrent();
+      },
+ 
+      loadCurrent: function() {
+        var hash = window.location.hash;
+        if (hash.length > 0) {
+          matches = hash.match(/^#themes\/([a-z0-9\-_]+)$/);
+          if (matches && matches.length > 1) {
+            $('#current-theme').attr('href', 'stylesheets/themes/' + matches[1] + '/style.css');
+          } else {
+            alert('theme not valid');
+          }
+        }
+      }
+    }
+ 
+    $(document).ready(function() {
+      Theme.loadCurrent();
+      $.localScroll();
+      $('.table :checkbox.toggle').each(function(i, toggle) {
+        $(toggle).change(function(e) {
+          $(toggle).parents('table:first').find(':checkbox:not(.toggle)').each(function(j, checkbox) {
+            checkbox.checked = !checkbox.checked;
+          })
+        });
+      });
+    });
+    // ]]>
+  </script> 
+</head> 
+<body> 
+  <div id="container"> 
+    <div id="header"> 
+      <h1><a href="index.html">First Client Site</a></h1> 
+      <div id="user-navigation"> 
+        <ul class="wat-cf"> 
+        </ul> 
+      </div> 
+      <div id="main-navigation"> 
+        <ul class="wat-cf"> 
+          <li class="first active"><a href="#block-text">Main Page</a></li> 
+                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+        </ul> 
+      </div> 
+    </div> 
+    <div id="wrapper" class="wat-cf"> 
+      <div id="main"> 
+ 
+        <div class="block" id="block-text"> 
+          <div class="content"> 
+            <h2 class="title">Hi, <%= @username %> Welcome to the first client site</h2> 
+            <div class="inner"> 
+              <p class="first"> 
+                This is the home page for the first initial client site, in this demo a user would request to login to enter the protected parts of the site.
+              </p> 
+              <p>
+                <span style="font-size: 25px;"><%= link_to("Login Here", CASClient::Frameworks::Rails::Filter.login_url(controller)) %></span>
+              </p>
+          </div> 
+        </div> 
+ 
         
-          <div class="wrapper">
-            <ul>
-               <li><a href="prod_detail.html"><img src="images/banner1.jpg" alt="" /></a></li>
-               <li><a href="prod_detail.html"><img src="images/banner2.jpg" alt="" /></a></li>
-               <li><a href="prod_detail.html"><img src="images/banner3.jpg" alt="" /></a></li>
-               <li><a href="prod_detail.html"><img src="images/banner4.jpg" alt="" /></a></li>
-            </ul>        
-          </div>
-        </div>
-    </div>
-    <!-- Bread Crumb -->
-    <div id="breadcrumb">
-    	<ul>
-        	<li><a href="categories.html">Categories</a></li>
-            <li><a href="listing.html">Desktop PCs</a></li>
-            <li><a href="listing.html">Laptop PCs</a></li>
-            <li><a href="listing.html">TVs</a></li>
-        </ul>
-        <div class="sharethis">
-        	<a href="#">Share this Page</a>
-        </div>
-    </div>
-    <!-- Content Section -->
-    <div id="content_sec">
-    	<!-- Column 1 -->
-    	<div class="col1">
-        	<!-- Categories Start -->
-        	<div class="categories">
-            	<h5>CATEGORIES</h5>
-                <div class="glossymenu">
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Desktop PCs</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Laptop PCs</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">TVs</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Printers &amp; Ink</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Electronics, Software &amp; Accessories</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Parts For Your Dell</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                    <a class="menuitem submenuheader" href="categories.html" ><span class="arow">Mobile Phones</span></a>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="listing.html">Desktop PCs</a></li>
-                            <li><a href="listing.html">Laptop PCs</a></li>
-                            <li><a href="listing.html">TVs</a></li>
-                            <li><a href="listing.html">Printers &amp; Ink</a></li>
-                            <li><a href="listing.html">Electronics, Software &amp; Accessories</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Categories End -->
-            <div class="clear"></div>
-            <!-- Advertise Start -->
-            <div class="adv">
-            	<a href="#"><img src="images/adv1.gif" alt="" /></a>
-                <a href="#"><img src="images/adv2.gif" alt="" /></a>
-            </div>
-            <!-- Advertise End -->
-        </div>
-        <!-- Column 2 -->
-        <div class="col2">
-        	<!-- Welcome Text -->
-            <div class="welcm">
-            	<h2 class="heading colr">Welcome</h2>
-                <div class="clear"></div>
-                <p>
-                	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed elit. Nulla sem risus, vestibulum in, volutpat eget, dapibus ac, lectus. Curabitur dolor sapien, hendrerit non, suscipit bibendum, auctor ac, arcu. Vestibulum dapibus. Sed pede lacus, pretium in, condimentum sit amet, mollis dapibus, magna. Ut bibendum dolor nec augue. Ut tempus luctus metus. Sed a velit. Pellentesque at libero elementum ante condimentum sollicitudin. Pellentesque lorem ipsum, semper quis, interdum et, sollicitudin eu, purus. Vivamus fringilla ipsum vel orci. Phasellus vitae massa at massa pulvinar pellentesque. Fusce tincidunt libero vitae odio. Donec malesuada diam nec mi. Integer hendrerit pulvinar ante. Donec eleifend, nisl eget aliquam congue, justo metus venenatis neque, vel tincidunt elit augue sit amet velit. Nulla facilisi. Aenean suscipit. 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed elit. Nulla sem risus, vestibulum in, volutpat eget, dapibus ac, lectus. Curabitur dolor sapien, hendrerit non, suscipit bibendum, auctor ac, arcu. Vestibulum dapibus. Sed pede lacus, pretium in, condimentum sit amet, mollis dapibus, magna. Ut bibendum dolor nec augue. Ut tempus luctus metus. Sed a velit. Pellentesque at libero elementum ante condimentum sollicitudin. Pellentesque lorem ipsum, semper quis, interdum et, sollicitudin eu, purus. Vivamus fringilla ipsum vel orci. Phasellus vitae massa at massa pulvinar pellentesque. Fusce tincidunt libero vitae odio. Donec malesuada diam nec mi. Integer hendrerit pulvinar ante. Donec eleifend, nisl eget aliquam congue, justo metus venenatis neque, vel tincidunt elit augue sit amet velit. Nulla facilisi. Aenean suscipit. 
-                </p>
-            </div>
-            <!-- Products -->
-            <div class="products">
-            	<h2 class="heading colr">New Products for March 2010</h2>
-                <ul>
-                	<li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod1.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">HP Pavilion DV6</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod2.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">WD HD Media Player</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod3.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">Samsung HDTV</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li class="last">
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod4.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">Kodak 2 Lens Camera</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod5.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">Samsung Pixon</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod6.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">Brother HL 2140</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li>
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod7.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">Samsung G800</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                    <li class="last">
-                    	<a href="prod_detail.html" class="prod"><img src="images/prod8.gif" alt="" /></a>
-                        <a href="prod_detail.html" class="title colr bold">HTC Hero</a>
-                        <div class="clear"></div>
-                        <p class="desc">Stereoscopic 3D bundle</p>
-                        <p class="price"><span class="left">Price</span> <span class="pricetag colr bold">$969.5</span></p>
-                        <a href="shoppingcart.html" class="butn">Add to cart</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-            <!-- Advertise Banner -->
-            <div class="btm_bnr">
-            	<div>
-                    <p class="virtualpage2 hidepiece">
-                    <img src="images/baner_btm1.gif" alt="" />
-                    </p>
-                    
-                    <p class="virtualpage2 hidepiece">
-                    <img src="images/baner_btm2.gif" alt="" />
-                    </p>
-                    <p class="virtualpage2 hidepiece">
-                    <img src="images/baner_btm3.gif" alt="" />
-                    </p>
-                    <p class="virtualpage2 hidepiece">
-                    <img src="images/baner_btm4.gif" alt="" />
-                    </p>
-                    <p class="virtualpage2 hidepiece">
-                    <img src="images/baner_btm5.gif" alt="" />
-                    </p>
-				</div>
-                <div id="scriptspaginate" class="paginationstyle">
-                	<span class="paginateinfo"></span>
-                    <a href="#" rel="previous" class="prev">&nbsp;</a>
-                    <a href="#" rel="next" class="next">&nbsp;</a>
-                </div>
-                <script type="text/javascript" src="js/paging.js"></script>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Section -->
-    <div id="footer">
-    	<div class="fsecs">
-        	<h5 class="bold">Website Info</h5>
-            <ul>
-            	<li><a href="#">About Store</a></li>
-                <li><a href="categories.html">Specials</a></li>
-                <li><a href="#">New Products</a></li>
-                <li><a href="#">All Products</a></li>
-            </ul>
-            <ul>
-            	<li><a href="#">Vendors</a></li>
-                <li><a href="#">Top Suppliers</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Links</a></li>
-            </ul>
-            <ul>
-            	<li><a href="#">Login</a></li>
-                <li><a href="#">Signup</a></li>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Sitemap</a></li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <div class="fsecs">
-        	<h5 class="bold">Customer Services</h5>
-            <ul>
-            	<li><a href="#">Check and Reserve</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <div class="fsecs1">
-        	<h5 class="bold">BookMark Us</h5>
-            <ul>
-            	<li><a href="#"><img src="images/facebook_icon.gif" alt="" /></a></li>
-                <li><a href="#"><img src="images/twitter_icon.gif" alt="" /></a></li>
-                <li><a href="#"><img src="images/rss_icon.gif" alt="" /></a></li>
-                <li><a href="#"><img src="images/myspace.gif" alt="" /></a></li>
-            </ul>
-            <div class="clear"></div>
-            <p class="lock">
-            	Online safety &amp; <br />
-				Security center
-            </p>
-            <div class="clear"></div>
-        </div>
-        <!-- Newsletter Section -->
-        <div class="newsletr">
-        	<h5 class="bold"><span class="colr">Newsletter</span> Sign up</h5>
-            <ul>
-            	<li><input name="" type="text" class="bar" /></li>
-                <li><input type="submit" class="sub_btn" value="Subscribe" /></li>
-            </ul>
-            <div class="clear"></div>
-            <ul>
-            	<li><input name="" type="checkbox" /></li>
-                <li>&nbsp; &nbsp; Unsubscribe</li>
-            </ul>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <!-- Bottom Navigation Section -->
-<div id="botmnavi">
-    	<ul>
-        	<li class="first"><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Terms and Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li class="last"><a href="#">Privacy Rights</a></li>
-        </ul>
-    </div>
-</div>
-<div style="display: none;">
-		<div id="inline1" style="width:400px;">
-			<h2>Login Here</h2>
-    <div class="clear"></div>
-    <p>Dont Have an account? <a href="register.html" class="colr">Create one</a>, It’s Simple and free.</p>
-    <div class="clear"></div>
-    <a href="#" class="left"><img src="images/signup.gif" alt="" /></a> &nbsp;<a href="#" class="left"><img src="images/forgot.gif" alt="" /></a>
-    <div class="clear marg_bot">&nbsp;</div>
-    <ul class="forms">
-    	<li class="txt">User Name</li>
-        <li class="inputfield"><input type="text" value="" class="bar" /></li>
-    </ul>
-    <ul class="forms">
-    	<li class="txt">Password</li>
-        <li class="inputfield"><input type="text" value="" class="bar" /></li>
-    </ul>
-    <ul class="forms marg_top">
-    	<li class="txt">&nbsp;</li>
-        <li class="inputfield"><a href="#" class="btn"><span>Login</span></a>&nbsp;&nbsp; <a href="#" class="btn"><span>Cancel</span></a></li>
-    </ul>
-		</div>
-	</div>
-</body>
-</html>
+ 
+        
+        <div id="footer"> 
+          <div class="block"> 
+            <p>Copyright &copy; 2010 Your Site.</p> 
+          </div> 
+        </div> 
+      </div> 
+      
+  </div> 
+</body> 
+</html> 
+ 
