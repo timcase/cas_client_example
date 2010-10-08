@@ -26,6 +26,8 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+config.after_initialize do
   CASClient::Frameworks::Rails::Filter.configure(
     :cas_base_url => "http://evening-day-42.heroku.com/"
   )
+end
