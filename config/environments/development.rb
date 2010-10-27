@@ -18,14 +18,6 @@ config.action_mailer.raise_delivery_errors = false
 
 CLASSY_CAS_URL = "http://127.0.0.1:9393"
 
-# config.after_initialize do
-# CASClient::Frameworks::Rails::Filter.configure(
-#   :cas_base_url => CLASSY_CAS_URL,
-#   :service_url => "http://redrum.local/pages"
-# )  
-# end
-
-
 FIRST_SITE_URL = 'http://redrum.local'
 SECOND_SITE_URL = 'http://greenie.local'
 
