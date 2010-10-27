@@ -39,4 +39,4 @@ SECOND_SITE_URL = 'http://cold-river-72.heroku.com'
 
 config.action_mailer.default_url_options = { :host => 'quiet-samurai-41.heroku.com' }
 require 'omniauth/enterprise'
-config.middleware.use OmniAuth::Strategies::CAS, :server => CLASSY_CAS_URL
+config.middleware.use OmniAuth::Strategies::CAS, :cas_server => CLASSY_CAS_URL
