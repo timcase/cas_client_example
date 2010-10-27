@@ -54,7 +54,7 @@
       <div id="main-navigation"> 
         <ul class="wat-cf"> 
           <li class="first active"><a href="#block-text">Main Page</a></li> 
-                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login","/auth/cas") %><% end %></a></li> 
         </ul> 
       </div> 
     </div> 
@@ -69,7 +69,7 @@
                 This is the home page for the first initial client site, in this demo a user would request to login to enter the protected parts of the site.
               </p> 
               <p>
-                <span style="font-size: 25px;"><%= link_to("Login Here", CASClient::Frameworks::Rails::Filter.login_url(controller)) %></span>
+                <span style="font-size: 25px;"><%= link_to("Login Here", "/auth/cas") %></span>
               </p>
           </div> 
         </div> 

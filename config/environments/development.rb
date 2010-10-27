@@ -16,12 +16,19 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.after_initialize do
-CASClient::Frameworks::Rails::Filter.configure(
-  :cas_base_url => "http://127.0.0.1:9393/",
-  :service_url => "http://redrum.local/pages"
-)  
-end
+CLASSY_CAS_URL = "http://127.0.0.1:9393"
+
+# config.after_initialize do
+# CASClient::Frameworks::Rails::Filter.configure(
+#   :cas_base_url => CLASSY_CAS_URL,
+#   :service_url => "http://redrum.local/pages"
+# )  
+# end
+
 
 FIRST_SITE_URL = 'http://redrum.local'
 SECOND_SITE_URL = 'http://greenie.local'
+
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+require 'omniauth/enterprise'
+config.middleware.use OmniAuth::Strategies::CAS, :cas_server => CLASSY_CAS_URL

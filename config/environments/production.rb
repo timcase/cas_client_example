@@ -26,12 +26,17 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
-config.after_initialize do
-  CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "http://evening-day-42.heroku.com/",
-    :service_url => "http://quiet-samurai-41.heroku.com/pages"
-  )
-end
+CLASSY_CAS_URL = "http://evening-day-42.heroku.com"
+# config.after_initialize do
+#   CASClient::Frameworks::Rails::Filter.configure(
+#     :cas_base_url => CLASSY_CAS_URL,
+#     :service_url => "http://quiet-samurai-41.heroku.com/pages"
+#   )
+# end
 
 FIRST_SITE_URL = 'http://quiet-samurai-41.heroku.com'
 SECOND_SITE_URL = 'http://cold-river-72.heroku.com'
+
+config.action_mailer.default_url_options = { :host => 'quiet-samurai-41.heroku.com' }
+require 'omniauth/enterprise'
+config.middleware.use OmniAuth::Strategies::CAS, :server => CLASSY_CAS_URL

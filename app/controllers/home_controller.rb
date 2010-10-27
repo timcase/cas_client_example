@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
-  before_filter CASClient::Frameworks::Rails::Filter, :except => [:index]
+  # before_filter CASClient::Frameworks::Rails::Filter, :except => [:index]
   # skip_before_filter :login_required, :only => [:index]
   def index
     # raise self.instance_methods.inspect
@@ -9,10 +9,4 @@ class HomeController < ApplicationController
      @username = session[:cas_user]
   end
   
-  def logout
-      # optionally do some local cleanup here
-      # ...
-      
-    CASClient::Frameworks::Rails::Filter.logout(self)
-  end
 end

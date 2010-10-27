@@ -54,7 +54,7 @@
       <div id="main-navigation"> 
         <ul class="wat-cf"> 
           <li class="first active"><a href="#block-text">Main Page</a></li> 
-                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+                    <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", 'auth/cas') %><% end %></a></li> 
         </ul> 
       </div> 
     </div> 
@@ -73,7 +73,7 @@
               </p>
               <h2>Woohoo! Protected content!</h2>
 <div>
-                <img src="http://s3.amazonaws.com/data.tumblr.com/tumblr_l9hj4uwenb1qaooc8o1_1280.jpg?AWSAccessKeyId=0RYTHV9YYQ4W5Q3HQMG2&Expires=1286658646&Signature=8bCD1vGm405dDObiK1BcJr99WUQ%3D"></div>
+                <img src="http://www.bemparana.com.br/craques-e-caneladas/wp-content/uploads/2008/06/nicolebahls6.jpg"></div>
 
             </div> 
 

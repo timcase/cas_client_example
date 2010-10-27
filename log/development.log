@@ -10690,3 +10690,657 @@ Processing PagesController#index (for 127.0.0.1 at 2010-10-08 16:58:19) [GET]
 Existing local CAS session detected for "quentin". Previous ticket "ST-63843831604699374" will be re-used.
 Rendering pages/index
 Completed in 12ms (View: 2, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 13:12:25) [GET]
+Rendering home/index
+Using explicitly set service url: http://redrum.local/pages
+Generated login url: http://127.0.0.1:9393/login?service=http%3A%2F%2Fredrum.local%2Fpages
+Using explicitly set service url: http://redrum.local/pages
+Generated login url: http://127.0.0.1:9393/login?service=http%3A%2F%2Fredrum.local%2Fpages
+Completed in 196ms (View: 120, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 13:12:34) [GET]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-26 13:12:34) [GET]
+  Parameters: {"unauthenticated"=>"true"}
+
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  devise (1.0.8) lib/devise/controllers/internal_helpers.rb:75:in `new'
+  devise (1.0.8) lib/devise/controllers/internal_helpers.rb:75:in `build_resource'
+  devise (1.0.8) app/controllers/sessions_controller.rb:13:in `new'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (102.0ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#index (for 127.0.0.1 at 2010-10-26 15:48:31) [GET]
+
+NoMethodError (undefined method `use' for ApplicationController:Class):
+  app/controllers/application_controller.rb:12
+  app/controllers/home_controller.rb:1
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (195.3ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#index (for 127.0.0.1 at 2010-10-26 15:49:21) [GET]
+
+ActionController::RoutingError (No route matches "/auth/cas" with {:method=>:get}):
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 16:09:43) [GET]
+  Parameters: {"ticket"=>"ST-30340496039219681"}
+Completed in 148ms (View: 131, DB: 0) | 200 OK [http://0.0.0.0/auth/cas/callback?ticket=ST-30340496039219681]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 16:27:27) [GET]
+Rendering home/index
+Using explicitly set service url: http://redrum.local/pages
+Generated login url: http://127.0.0.1:9393/login?service=http%3A%2F%2Fredrum.local%2Fpages
+Completed in 281ms (View: 166, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 16:27:51) [GET]
+  Parameters: {"ticket"=>"ST-30340496039219681"}
+Redirected to http://0.0.0.0:3000/pages
+Completed in 56ms (DB: 0) | 302 Found [http://0.0.0.0/auth/cas/callback?ticket=ST-30340496039219681]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 16:27:52) [GET]
+Rendering pages/index
+Using explicitly set service url: http://redrum.local/pages
+Generated login url: http://127.0.0.1:9393/login?service=http%3A%2F%2Fredrum.local%2Fpages
+Completed in 123ms (View: 76, DB: 0) | 200 OK [http://0.0.0.0/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 16:33:58) [GET]
+Rendering pages/index
+Using explicitly set service url: http://redrum.local/pages
+Generated login url: http://127.0.0.1:9393/login?service=http%3A%2F%2Fredrum.local%2Fpages
+Completed in 32ms (View: 17, DB: 0) | 200 OK [http://0.0.0.0/pages]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 17:02:41) [GET]
+Rendering home/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]) on line #57 of app/views/home/index.html.erb:
+54:       <div id="main-navigation"> 
+55:         <ul class="wat-cf"> 
+56:           <li class="first active"><a href="#block-text">Main Page</a></li> 
+57:                     <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+58:         </ul> 
+59:       </div> 
+60:     </div> 
+
+    app/views/home/index.html.erb:57
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+    passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+    passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (131.0ms)
+Rendered rescues/_request_and_response (3.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 17:03:28) [GET]
+Rendering home/index
+Completed in 25ms (View: 15, DB: 0) | 200 OK [http://redrum.local/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 17:03:55) [GET]
+  Parameters: {"ticket"=>"ST-72975754691477804"}
+Redirected to http://redrum.local/pages
+Completed in 13ms (DB: 0) | 302 Found [http://redrum.local/auth/cas/callback?ticket=ST-72975754691477804]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:03:55) [GET]
+Rendering pages/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]) on line #57 of app/views/pages/index.html.erb:
+54:       <div id="main-navigation"> 
+55:         <ul class="wat-cf"> 
+56:           <li class="first active"><a href="#block-text">Main Page</a></li> 
+57:                     <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", CASClient::Frameworks::Rails::Filter.login_url(controller)) %><% end %></a></li> 
+58:         </ul> 
+59:       </div> 
+60:     </div> 
+
+    app/views/pages/index.html.erb:57
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+    passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+    passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (133.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:04:29) [GET]
+Rendering pages/index
+ERROR: compiling _run_erb_app47views47pages47index46html46erb RAISED compile error
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:57: syntax error, unexpected ';', expecting ')'
+...o("Login", 'auth/cas' ).to_s);  end ; @output_buffer.concat ...
+                              ^
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:97: syntax error, unexpected kENSURE, expecting kEND
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:99: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47pages47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"> \n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"> \n<head> \n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> \n  <title>First Client Site</title> \n  <link rel=\"stylesheet\" href=\"stylesheets/base.css\" type=\"text/css\" media=\"screen\" /> \n  <link rel=\"stylesheet\" id=\"current-theme\" href=\"stylesheets/style.css\" type=\"text/css\" media=\"screen\" /> \n  <script type=\"text/javascript\" charset=\"utf-8\" src=\"javascripts/jquery-1.3.min.js\"></script> \n  <script type=\"text/javascript\" charset=\"utf-8\" src=\"javascripts/jquery.scrollTo.js\"></script> \n  <script type=\"text/javascript\" charset=\"utf-8\" src=\"javascripts/jquery.localscroll.js\"></script> \n  <script type=\"text/javascript\" charset=\"utf-8\"> \n    // <![CDATA[\n    var Theme = {\n      activate: function(name) {\n        window.location.hash = 'themes/' + name\n        Theme.loadCurrent();\n      },\n \n      loadCurrent: function() {\n        var hash = window.location.hash;\n        if (hash.length > 0) {\n          matches = hash.match(/^#themes\\/([a-z0-9\\-_]+)$/);\n          if (matches && matches.length > 1) {\n            $('#current-theme').attr('href', 'stylesheets/themes/' + matches[1] + '/style.css');\n          } else {\n            alert('theme not valid');\n          }\n        }\n      }\n    }\n \n    $(document).ready(function() {\n      Theme.loadCurrent();\n      $.localScroll();\n      $('.table :checkbox.toggle').each(function(i, toggle) {\n        $(toggle).change(function(e) {\n          $(toggle).parents('table:first').find(':checkbox:not(.toggle)').each(function(j, checkbox) {\n            checkbox.checked = !checkbox.checked;\n          })\n        });\n      });\n    });\n    // ]]>\n  </script> \n</head> \n<body> \n  <div id=\"container\"> \n    <div id=\"header\"> \n      <h1><a href=\"index.html\">First Client Site</a></h1> \n      <div id=\"user-navigation\"> \n        <ul class=\"wat-cf\"> \n        </ul> \n      </div> \n      <div id=\"main-navigation\"> \n        <ul class=\"wat-cf\"> \n          <li class=\"first active\"><a href=\"#block-text\">Main Page</a></li> \n                    <li>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  if logged_in?; @output_buffer.concat(( link_to "Logout", logout_path ).to_s);  else ; @output_buffer.concat(( link_to("Login", 'auth/cas' ).to_s);  end ; @output_buffer.concat "</a></li> \n        </ul> \n      </div> \n    </div> \n    <div id=\"wrapper\" class=\"wat-cf\"> \n      <div id=\"main\"> \n \n        <div class=\"block\" id=\"block-text\"> \n          <div class=\"content\"> \n            <h2 class=\"title\">Hi, "
+
+
+
+
+
+
+
+
+; @output_buffer.concat(( @username ).to_s); @output_buffer.concat " you are logged into the first site</h2> \n            <div class=\"inner\"> \n              <p class=\"first\"> \n                This is a protected page on the first site\n              </p> \n              <p>\n                <span style=\"font-size: 25px;\">"
+
+
+
+
+
+; @output_buffer.concat(( link_to "Go to the second site", SECOND_SITE_URL + "/pages" ).to_s); @output_buffer.concat "</span>\n              </p>\n              <h2>Woohoo! Protected content!</h2>\n<div>\n                <img src=\"http://www.bemparana.com.br/craques-e-caneladas/wp-content/uploads/2008/06/nicolebahls6.jpg\"></div>\n\n            </div> \n\n          </div> \n        </div> \n \n        \n \n        \n        <div id=\"footer\"> \n          <div class=\"block\"> \n            <p>Copyright &copy; 2010 Your Site.</p> \n          </div> \n        </div> \n      </div> \n      \n  </div> \n</body> \n</html> \n "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:99:in `compile!'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+/usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+/usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/utils.rb:182:in `safe_fork'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:162:in `start'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/bin/passenger-spawn-server:61
+
+ActionView::TemplateError (compile error
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:57: syntax error, unexpected ';', expecting ')'
+...o("Login", 'auth/cas' ).to_s);  end ; @output_buffer.concat ...
+                              ^
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:97: syntax error, unexpected kENSURE, expecting kEND
+/Users/timcase/Sites/cas_app_one/app/views/pages/index.html.erb:99: syntax error, unexpected $end, expecting kEND) on line #57 of app/views/pages/index.html.erb:
+54:       <div id="main-navigation"> 
+55:         <ul class="wat-cf"> 
+56:           <li class="first active"><a href="#block-text">Main Page</a></li> 
+57:                     <li><% if logged_in?%><%= link_to "Logout", logout_path %><% else %><%= link_to("Login", 'auth/cas' %><% end %></a></li> 
+58:         </ul> 
+59:       </div> 
+60:     </div> 
+
+    app/views/pages/index.html.erb:99:in `compile!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+    passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+    passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (112.9ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:04:38) [GET]
+Rendering pages/index
+Completed in 123ms (View: 113, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:05:31) [GET]
+Rendering pages/index
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:05:32) [GET]
+Rendering pages/index
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:05:34) [GET]
+Rendering pages/index
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 17:05:48) [GET]
+Rendering pages/index
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing HomeController#logout (for 127.0.0.1 at 2010-10-26 17:05:56) [GET]
+
+RuntimeError (Cannot use the CASClient filter because it has not yet been configured.):
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+  passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+  passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (96.2ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 18:17:50) [GET]
+Rendering home/index
+Completed in 100ms (View: 79, DB: 0) | 200 OK [http://redrum.local/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 18:20:47) [GET]
+  Parameters: {"ticket"=>"ST-25467089817167336"}
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://redrum.local/auth/cas/callback?ticket=ST-25467089817167336]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 18:57:02) [GET]
+Rendering home/index
+Completed in 82ms (View: 71, DB: 0) | 200 OK [http://redrum.local/]
+/!\ FAILSAFE /!\  Tue Oct 26 18:57:17 -0700 2010
+  Status: 500 Internal Server Error
+  can't dup NilClass
+    /usr/local/lib/ruby/gems/1.8/gems/oa-enterprise-0.1.5/lib/omniauth/strategies/cas/configuration.rb:77:in `dup'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-enterprise-0.1.5/lib/omniauth/strategies/cas/configuration.rb:77:in `append_service'
+    /Users/timcase/Sites/cas_app_one/config/initializers/omni_auth_cas_hacks.rb:8:in `login_url'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-enterprise-0.1.5/lib/omniauth/strategies/cas.rb:22:in `request_phase'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:25:in `call!'
+    /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/head.rb:9:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/methodoverride.rb:24:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/utils.rb:182:in `safe_fork'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:162:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    /usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.4/bin/passenger-spawn-server:61
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-10-26 18:58:26) [GET]
+Rendering home/index
+Completed in 35ms (View: 25, DB: 0) | 200 OK [http://redrum.local/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 18:58:52) [GET]
+  Parameters: {"ticket"=>"ST-31932307235568267"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://redrum.local/auth/cas/callback?ticket=ST-31932307235568267]
+
+
+Processing SessionsController#logout (for 127.0.0.1 at 2010-10-26 19:04:46) [GET]
+
+SystemStackError (stack level too deep):
+  app/controllers/sessions_controller.rb:12:in `logout'
+  app/controllers/sessions_controller.rb:12:in `logout'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+  passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+  passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (94.2ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionsController#logout (for 127.0.0.1 at 2010-10-26 19:05:26) [GET]
+Redirected to http://127.0.0.1:9393/logout
+Completed in 9ms (DB: 0) | 302 Found [http://redrum.local/logout]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 19:14:27) [GET]
+
+NoMethodError (undefined method `authorization_required!' for #<PagesController:0x3687e48>):
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:50:in `call_app!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:32:in `call!'
+  /usr/local/lib/ruby/gems/1.8/gems/oa-core-0.1.5/lib/omniauth/strategy.rb:19:in `call'
+  passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+  passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendered rescues/_trace (645.7ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 19:14:59) [GET]
+Redirected to http://redrum.local/auth/cas
+Filter chain halted as [:authorization_required!] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://redrum.local/pages]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-26 19:15:20) [GET]
+  Parameters: {"ticket"=>"ST-23792220842699507"}
+Redirected to http://redrum.local/pages
+Completed in 17ms (DB: 0) | 302 Found [http://redrum.local/auth/cas/callback?ticket=ST-23792220842699507]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 19:15:20) [GET]
+Rendering pages/index
+Completed in 68ms (View: 57, DB: 0) | 200 OK [http://redrum.local/pages]
+
+
+Processing SessionsController#logout (for 127.0.0.1 at 2010-10-26 19:15:26) [GET]
+Redirected to http://127.0.0.1:9393/logout
+Completed in 13ms (DB: 0) | 302 Found [http://redrum.local/logout]
+
+
+Processing SessionsController#session_clear (for 127.0.0.1 at 2010-10-26 19:15:30) [GET]
+Rendering sessions/session_clear
+Completed in 75ms (View: 25, DB: 0) | 200 OK [http://redrum.local/session_clear]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-10-26 19:15:41) [GET]
+Redirected to http://redrum.local/auth/cas
+Filter chain halted as [:authorization_required!] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://redrum.local/pages]

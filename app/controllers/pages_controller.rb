@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  before_filter CASClient::Frameworks::Rails::Filter
+  before_filter :authorization_required!
   def index
-     @username = session[:cas_user]
+     @username =  self.current_user
   end
 end
