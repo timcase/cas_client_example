@@ -39,7 +39,6 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user
   end
   
-
   def classy_logout
     redirect_to CLASSY_CAS_URL + '/logout'
   end
