@@ -27,11 +27,11 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-CLASSY_CAS_URL = "http://evening-day-42.heroku.com"
+CLASSY_CAS_URL = "http://classycas.heroku.com"
 
-FIRST_SITE_URL = 'http://quiet-samurai-41.heroku.com'
-SECOND_SITE_URL = 'http://cold-river-72.heroku.com'
+FIRST_SITE_URL = 'http://casclientone.heroku.com'
+SECOND_SITE_URL = 'http://casclienttwo.heroku.com'
 
-config.action_mailer.default_url_options = { :host => 'quiet-samurai-41.heroku.com' }
+config.action_mailer.default_url_options = { :host => 'casclientone.heroku.com' }
 require 'omniauth/enterprise'
 config.middleware.use OmniAuth::Strategies::CAS, :cas_server => CLASSY_CAS_URL
